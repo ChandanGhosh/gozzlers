@@ -7,8 +7,8 @@ package main
 import "strconv"
 
 func main() {
-	arr1 := []rune{'a', 'b', 'c', 'd'}
-	arr2 := []rune{'x', 'y', 'c'}
+	arr1 := []rune{'a', 'z', 'c', 'd'}
+	arr2 := []rune{'x', 'y', 'z'}
 
 	findCommonChar(arr1, arr2)
 	findCommonCharEfficient(arr1, arr2)
@@ -30,6 +30,7 @@ func findCommonChar(arr1, arr2 []rune) bool {
 			}
 		}
 	}
+	println("Couldn't find any common character")
 	return false
 }
 
@@ -37,7 +38,8 @@ func findCommonChar(arr1, arr2 []rune) bool {
 // we are first creating a hashmap from the existing array. The reason is, hashmap is extremely fast
 // read, insert and delete O(1)
 // And then another loop with the other array to just find the common item which would be pretty fast and easy.
-// Here we bring down the complexity from O(a*b) to O(a+b) which is more efficient.
+// Here we bring down the time complexity from O(a*b) to O(a+b) which is more efficient.
+// Space complexity for this function is O(a)
 func findCommonCharEfficient(arr1, arr2 []rune) bool {
 	charMap := make(map[rune]bool)
 	for i := 0; i < len(arr1); i++ {
