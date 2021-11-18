@@ -9,9 +9,20 @@
 
 package main
 
+import (
+	"flag"
+	"fmt"
+	"os"
+)
+
 func main() {
-	println("The GCD of 20 and 8 is: ", find_gcd(20, 8))
-	println("The GCD of 96 and 36 is: ", find_gcd(96, 36))
+	if len(os.Args) > 1 {
+		a, b := flag.Int("a", 20, "enter a"), flag.Int("b", 8, "enter b")
+		flag.Parse()
+		fmt.Printf("The GCD of %v and %v is: %v\n", *a, *b, find_gcd(*a, *b))
+	} else {
+		println("enter two numbers to find GCD")
+	}
 
 }
 
