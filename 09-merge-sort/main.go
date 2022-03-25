@@ -11,7 +11,7 @@ package main
 import "fmt"
 
 func main() {
-	unsorted := []int{10, 6, 2, 1, 5, 8, 3, 4, 7, 9, -9, 10, 7, 0, -1}
+	unsorted := []int{10, 6, 2, 1, 5, 8, 3, 4, 99, -99, 7, 9, -9, 10, 7, 0, -1}
 	fmt.Printf("Unsorted: %+v\n", unsorted)
 	// fmt.Printf("Sorted: %+v", merge_sort(unsorted))
 	fmt.Printf("%+v\n", divide(unsorted))
@@ -47,15 +47,13 @@ func conquer(left, right []int) []int {
 	}
 
 	// only left array values
-	for i < len(left) {
-		sorted = append(sorted, left[i])
-		i++
+	if i < len(left) {
+		sorted = append(sorted, left[i:]...)
 	}
 
 	// Only right
-	for j < len(right) {
-		sorted = append(sorted, right[j])
-		j++
+	if j < len(right) {
+		sorted = append(sorted, right[j:]...)
 	}
 
 	return sorted
