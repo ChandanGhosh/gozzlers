@@ -27,14 +27,14 @@ func quickSort(unsorted []int, low, high int) []int {
 
 	if low < high {
 		var partitionIndx int
-		unsorted, partitionIndx = partiotion(unsorted, low, high)
+		unsorted, partitionIndx = partition(unsorted, low, high)
 		unsorted = quickSort(unsorted, low, partitionIndx-1)
 		unsorted = quickSort(unsorted, partitionIndx+1, high)
 	}
 	return unsorted
 }
 
-func partiotion(arr []int, first, last int) ([]int, int) {
+func partition(arr []int, first, last int) ([]int, int) {
 
 	pivot := arr[last]
 	i := first
